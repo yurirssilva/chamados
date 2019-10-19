@@ -6,13 +6,15 @@ module.exports = {
   async index(req, res) {
     const { id } = req.params;
 
-    const chamado = await Chamado.findById(id);
+    const chamado = await Chamado.findById(id).populate("funcionario_id").exec();
+
+    // const funcionario = await Funcionario.findOne({ matricula: chamado.funcionario_matricula });
 
     return res.json(chamado);
   },
 
   async show(req, res) {
-    const chamados = await Chamado.find();
+    const chamados = await Chamado.find().populate("funcionario_id").exec();
 
     return res.json(chamados);
   },
@@ -28,11 +30,12 @@ module.exports = {
     if (funcionario) {
       chamado = await Chamado.create({ 
         descricao,
-        funcionario_matricula,
+        funcionario_id: funcionario.id,
         status,
         data_hora_abertura,
         tipo_servico
       });
+      
       return res.json({
         sucess: true,
         msg: 'Chamado criado com sucesso!',

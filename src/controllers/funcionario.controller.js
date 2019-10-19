@@ -3,9 +3,9 @@ const Funcionario = require('../models/funcionario.model');
 module.exports = {
   
   async index(req, res) {
-    const { matricula } = req.params;
+    const { id } = req.params;
 
-    const funcionario = await Funcionario.findOne({ matricula });
+    const funcionario = await Funcionario.findById(id);
 
     return res.json(funcionario);
   },

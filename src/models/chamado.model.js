@@ -52,8 +52,8 @@ const produtosUtilizadosSchema = new mongoose.Schema({
 });
 
 const resolvidoSchema = new mongoose.Schema({
-  funcionario_matricula: {
-    type: Number,
+  funcionario_id: {
+    type: mongoose.Schema.Types.ObjectId,
     required: true
   },
   data_hora_vinculo: {
@@ -79,8 +79,8 @@ const ChamadoSchema = new mongoose.Schema({
     enum: ['Aberto', 'Cancelado', 'Resolvido'],
     required: true
   },
-  funcionario_matricula: {
-    type: String,
+  funcionario_id: {
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Funcionario',
     required: true
   },  

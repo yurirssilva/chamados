@@ -69,15 +69,21 @@ module.exports = {
       quantidade: produto.quantidade - quantidade
     });
 
-    // const chamadoAtribuido = await Chamado.update({
-    //   _id: id
-    // }, {
-    //   resolvido
-    // })
+    const chamadoAtribuido = await Chamado.update({
+      _id: id
+    }, {
+      $push: {
+        "resolvido.produtosUtilizados": {
+          produto_id,
+          quantidade
+        }
+      }
+    })
+
     return res.json({
       sucess: true,
       msg: 'Chamado atribuido com sucesso!',
-      produtoUtilizado: produto
+      chamadoAtribuido: chamadoAtribuido
     });
   }
 }
