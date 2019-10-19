@@ -26,5 +26,30 @@ module.exports = {
       msg: 'Produto criado com sucesso!',
       produto: produto
     });
+  },
+
+  async update(req, res) {
+    const { id } = req.params;
+    const { quantidade } = req.body;
+
+    const produto = await Produto.findById(id);
+
+    if (produto) {
+      const produtoAtualizado = await Produto.update({
+        _id: id
+      }, {
+        quantidade: produto.quantidade + quantidade
+      });
+      return res.json({
+        sucess: true,
+        msg: 'Estoque atualizado com sucesso!',
+        produtoAtualizado: produtoAtualizado
+      });
+    } else {          
+      return res.status(400).json({
+        sucess: false,
+        msg: 'Falha ao adicionar Produto, produto não encontrado!'
+      });
+    }
   }
 }
