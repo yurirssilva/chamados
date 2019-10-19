@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv/config');
 // const bodyPaser = require('body-paser');
 
@@ -20,7 +21,10 @@ mongoose.connect(urlMongo, {
 // app.use(bodyPaser.urlencoded({ extended:true }))
 // app.use(bodyPaser.json());
 
+app.use(cors())
+
 app.use(express.json());
 app.use(routes);
+
 
 module.exports = app;
