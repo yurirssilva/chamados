@@ -60,10 +60,10 @@ const resolvidoSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
-  data_hora_resolucao: {
+  data_hora_finalizado: {
     type: Date
   },
-  descricao_solucao: {
+  descricao: {
     type: String
   },
   produtosUtilizados: [produtosUtilizadosSchema]

@@ -26,8 +26,8 @@
     "resolvido" : {
       "funcionario_matricula": "",
       "data_hora_vinculo" : "",
-      "data_hora_resolucao" : "",
-      "descricao_solucao" : "",
+      "data_hora_finalizado" : "",
+      "descricao" : "",
       "produtos_utilizados": [
         {
           "produto_id": "",

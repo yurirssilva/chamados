@@ -2,9 +2,12 @@ const express = require('express');
 const FuncionarioController = require('./controllers/funcionario.controller');
 const ProdutoController = require('./controllers/produto.controller');
 const ChamadoController = require('./controllers/chamado.controller');
+const AtribuirController = require('./controllers/atribuir.controller');
 
 
 const routes = express.Router();
+
+routes.post('/atribuir', AtribuirController.update);
 
 routes.get('/funcionarios/:matricula', FuncionarioController.index);
 routes.get('/funcionarios', FuncionarioController.show);
