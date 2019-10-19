@@ -1,0 +1,16 @@
+{
+  "name": "chamados",
+  "version": "1.0.0",
+  "description": "Sistema feito para a matéria de Banco de Dados Web para Web",
+  "main": "server.js",
+  "author": "Matheus Coqueiro Andrade",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.5"
+  }
+}
